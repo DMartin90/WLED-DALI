@@ -1,4 +1,5 @@
 #include "wled.h"
+#include "usermod_DALI_UART.h"
 /*
  * Register your v2 usermods here!
  *   (for v1 usermods using just usermod.cpp, you can ignore this file)
@@ -14,6 +15,10 @@
 #ifdef USERMOD_BATTERY
   #include "../usermods/Battery/usermod_v2_Battery.h"
 #endif
+
+/*#ifdef DALIUART
+  #include "../usermods/DALI_UART/usermod_DALI_UART.h"
+#endif*/
 
 #ifdef USERMOD_DALLASTEMPERATURE
   #include "../usermods/Temperature/usermod_temperature.h"
@@ -212,6 +217,12 @@ void registerUsermods()
    * \/ \/ \/
    */
   //usermods.add(new MyExampleUsermod());
+  /*#ifdef DALIUART
+  usermods.add(new DaliUARTUserMod());
+  #endif*/
+  
+  usermods.add(new daliuartusermod());
+  
   #ifdef USERMOD_BATTERY
   usermods.add(new UsermodBattery());
   #endif
